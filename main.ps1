@@ -3,6 +3,9 @@ $cur_dir = (Get-Item -Path ".\" -Verbose).FullName
 . $cur_dir\data.ps1
 . $cur_dir\stopApp.ps1
 . $cur_dir\startApp.ps1
+. $cur_dir\archive.ps1
+. $cur_dir\delete.ps1
+. $cur_dir\copy.ps1
 
 Import-Module ServerManager
 Import-Module WebAdministration
@@ -29,6 +32,30 @@ do
                 echo "Hello, Again From Main Program!"
                 echo "Goodbye, Leaving Main Program Again!"
                 Start-Pool
+            } '3' {
+                cls
+                'You chose option #3, update Hydra Proxy'
+                echo "Hello, From Main Program!"
+                #App-Data
+                #Stop-Pool
+                #Archive-Files
+                #Delete-Files
+                #Copy-Files
+                echo "Hello, Again From Main Program!"
+                echo "Goodbye, Leaving Main Program Again!"
+                #Start-Pool
+            } '4' {
+                cls
+                'You chose option #4, update Hydra Services'
+                echo "Hello, From Main Program!"
+                #App-Data
+                #Stop-Pool
+                #Archive-Files
+                #Delete-Files
+                #Copy-Files
+                echo "Hello, Again From Main Program!"
+                echo "Goodbye, Leaving Main Program Again!"
+                #Start-Pool
            } 'q' {
                 return
            }

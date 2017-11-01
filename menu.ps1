@@ -9,5 +9,6 @@ function Show-Menu
      Write-Host "1: Press '1' to StopApp Pool."
      Write-Host "2: Press '2' to StartApp Pool."
      Write-Host "3: Press '3' to update Hydra Proxy."
+     Write-Host "4: Press '4' to update Hydra Services."
      Write-Host "Q: Press 'Q' to quit."
 }
