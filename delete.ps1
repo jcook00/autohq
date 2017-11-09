@@ -4,7 +4,7 @@ function Delete-Files
     pause
     ${pool_name} = "Proxy_QA_431_main"
     ${cur_drv} = (get-location).Drive.Name
-    Remove-Item ${cur_drv}:\Q2\WWWROOT\${pool_name}\* -recurse -exclude *.config
+    Remove-Item ${cur_drv}:\Q2\WWWROOT\${pool_name}\* -recurse -exclude *.config -Force
     write-host work in progress...
     pause
 
