@@ -8,6 +8,7 @@ $cur_dir = (Get-Item -Path ".\" -Verbose).FullName
 . $cur_dir\copy.ps1
 . $cur_dir\locationData.ps1
 . $cur_dir\unzip.ps1
+. $cur_dir\zip2.ps1
 
 Import-Module ServerManager
 Import-Module WebAdministration
@@ -22,35 +23,26 @@ do
               '1' {
                 cls
                 'You chose option #1, stop app pool'
-                echo "Hello, From Main Program!"
                 App-Data("Stopped")
-                echo "Hello, Again From Main Program!"
-                echo "Goodbye, Leaving Main Program Again!"
                 Stop-Pool
             } '2' {
                 cls
                 'You chose option #2, start app pool'
-                echo "Hello, From Main Program!"
                 App-Data("Started")
-                echo "Hello, Again From Main Program!"
-                echo "Goodbye, Leaving Main Program Again!"
                 Start-Pool
             } '3' {
                 cls
                 'You chose option #3, update Hydra Proxy'
                 echo "Hello, From Main Program!"
-                Loc-Data
                 App-Data("Stopped")
                 Stop-Pool
-                Archive-Files
+                Zip
+                echo "Hello, From Main Program after Zip function!"
+                Loc-Data
                 Delete-Files
-                Unzip($script:zipfile, $script:outpath)
+                Unzip
                 echo "Hello, Again From Main Program!"
-                echo "Goodbye, Leaving Main Program Again!"
                 Start-Pool
-                #(get $dir contents, present choice, read choice, confirm choice, store location in variable)
-                #($zipfile $outpath)
-                #Copy-Files ($outpath $destination)
             } '4' {
                 cls
                 'You chose option #4, update Hydra Services'
@@ -62,8 +54,8 @@ do
                 #Delete-Files(consider passing a parameter for excluded files *.config *.rlz)
                 #Copy-Files (get $dir, present choice, read choice, confirm choice, perform operation)
                 #App-Data("Started")
-                echo "Hello, Again From Main Program!"
-                echo "Goodbye, Leaving Main Program Again!"
+                #echo "Hello, Again From Main Program!"
+                #echo "Goodbye, Leaving Main Program Again!"
                 #Start-Pool
            } 'q' {
                 return
